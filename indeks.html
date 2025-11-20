@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inikah MyCalculator?</title>
+
+    <!-- Jelaskan Kodingan ini apa? -->
+    <!-- untuk menghubungkan file-file eksternal yang dibutuhkan oleh halaman web -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="./Style.css" rel="stylesheet">
+    <script src="./Script.js"></script>
+
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#mainNavbar" data-bs-offset="120" class="bg-[#F2F4F6] font-inter">
+
+    <!-- Tambahan Hiasan dan Profil -->
+    <section id="home"
+        class="relative w-full h-[50vh] bg-[url('https://images.unsplash.com/photo-1614028674026-a65e313d27bd?q=80&w=1920&auto=format&fit=crop')] bg-cover bg-center flex items-center justify-center">
+        <div class="absolute inset-0 bg-black/60"></div>
+        <div class="relative z-10 text-center text-white px-4">
+            <h1 class="display-4 fw-bold mb-2">Website Kalkulator Sederhana</h1>
+            <p class="lead opacity-90">Web Development - Bisnis Digital A</p>
+        </div>
+    </section>
+
+    <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm py-3">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary" href="#home">
+                <i class="bi bi-calculator"></i> MyCalculator
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav nav-pills gap-2">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#profil">Profil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold text-primary" href="#kalkulator">Kalkulator</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+
+        <section id="profil" class="mb-5 scroll-margin-top">
+            <div class="card border-0 shadow-sm rounded-4 bg-white overflow-hidden">
+                <div class="card-body p-4 p-lg-5">
+                    <div class="row align-items-center gy-4">
+                        <div class="col-md-4 text-center">
+                            <div class="d-inline-block">
+                                <div class="rounded-circle overflow-hidden border-4 border-light shadow"
+                                    style="width: 180px; height: 180px;">
+                                    <img src="./foto.jpg"
+                                        onerror="this.src='https://placehold.co/300x300/e2e8f0/1e293b?text=No+Image'"
+                                        class="w-100 h-100 object-fit-cover" alt="Foto Profil">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <h3 class="fw-bold mb-4 text-center text-md-start">Data Mahasiswa</h3>
+                            <div class="p-3 bg-light rounded-3">
+                                <table class="table table-borderless mb-0">
+                                    <tr>
+                                        <td class="text-secondary w-25">Nama</td>
+                                        <td class="fw-bold">: Maulana Akbar Fitra Alfiano</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-secondary">NIM</td>
+                                        <td class="fw-bold">: 1710624150</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-secondary">Prodi</td>
+                                        <td class="fw-bold">: Bisnis Digital</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Tambahan Hiasan dan Profil End-->
+
+        <hr class="my-5 border-secondary opacity-10">
+
+        <section id="kalkulator" class="scroll-margin-top py-4">
+
+            <div class="d-flex justify-content-center">
+
+                <div
+                    class="w-full max-w-[380px] bg-gray-800 rounded-2xl shadow-xl p-6 space-y-4 border border-gray-700">
+
+                    <!-- Jelaskan Kodingan ini apa? -->
+                    <!-- berfungsi untuk menampilkan gambar status di bagian atas kalkulator 
+                     (status operasi kalkulator (Normal, Sukses, atau Error) ditampilkan dalam bentuk gambar.) -->
+                    <div>
+                        <img id="statusImage" src="https://placehold.co/400x100/374151/E5E7EB?text=Kalkulator"
+                            alt="Status Kalkulator"
+                            class="w-full rounded-lg transition-all duration-300 ease-in-out shadow-inner">
+                    </div>
+
+                    <!-- Jelaskan Kodingan ini apa? -->
+                    <!-- berfungsi untuk membuat layar tampilan (display) kalkulator tempat angka dan hasil perhitungan muncul. -->
+                    <div class="bg-gray-900 rounded-lg p-4 shadow-inner border border-gray-600">
+                        <input type="text" id="display"
+                            class="w-full bg-transparent text-right text-4xl font-mono text-white border-0 outline-none p-2 tracking-widest"
+                            readonly placeholder="0">
+                    </div>
+
+                    <!-- Jelaskan Kodingan ini apa? -->
+                    <!-- berfungsi untuk mengatur tata letak (layout) tombol-tombol kalkulator dalam format grid 4 kolom menggunakan Tailwind CSS. -->
+                    <div class="grid grid-cols-4 gap-3">
+
+                        <!-- Jelaskan Kodingan ini apa? -->
+                        <!-- mendefinisikan empat tombol fungsi teratas dalam tata letak grid kalkulator, 
+                         yaitu Clear (C), Delete (DEL), Persen (%), dan Pembagian (/).  -->
+                        <button data-value="C"
+                            class="btn-calc h-16 text-xl font-bold bg-red-600 hover:bg-red-500 rounded-lg shadow-md text-white">C</button>
+                        <button data-value="DEL"
+                            class="btn-calc h-16 text-xl font-bold bg-gray-600 hover:bg-gray-500 rounded-lg shadow-md text-white">DEL</button>
+                        <button data-value="%"
+                            class="btn-calc h-16 text-xl font-bold bg-gray-600 hover:bg-gray-500 rounded-lg shadow-md text-white">%</button>
+                        <button data-value="/"
+                            class="btn-calc h-16 text-xl font-bold bg-blue-600 hover:bg-blue-500 rounded-lg shadow-md text-white">/</button>
+
+                        <!--  Jelaskan Kodingan ini apa  -->
+                        <!-- mendefinisikan baris kedua tombol pada kalkulator, yang terdiri dari angka 7, 8, 9, 
+                         dan operator Perkalian (*). -->
+                        <button data-value="7"
+                            class="btn-calc h-16 text-xl font-bold bg-gray-700 hover:bg-gray-600 rounded-lg shadow-md text-white">7</button>
+                        <button data-value="8"
+                            class="btn-calc h-16 text-xl font-bold bg-gray-700 hover:bg-gray-600 rounded-lg shadow-md text-white">8</button>
+                        <button data-value="9"
+                            class="btn-calc h-16 text-xl font-bold bg-gray-700 hover:bg-gray-600 rounded-lg shadow-md text-white">9</button>
+                        <button data-value="*"
+                            class="btn-calc h-16 text-xl font-bold bg-blue-600 hover:bg-blue-500 rounded-lg shadow-md text-white">*</button>
+
+                        <!--  Jelaskan Kodingan ini apa  -->
+                        <!-- mendefinisikan baris ketiga tombol pada kalkulator, yang terdiri dari angka 4, 5, 6, 
+                         dan operator Pengurangan (-). -->
+                        <button data-value="4"
+                            class="btn-calc h-16 text-xl font-bold bg-gray-700 hover:bg-gray-600 rounded-lg shadow-md text-white">4</button>
+                        <button data-value="5"
+                            class="btn-calc h-16 text-xl font-bold bg-gray-700 hover:bg-gray-600 rounded-lg shadow-md text-white">5</button>
+                        <button data-value="6"
+                            class="btn-calc h-16 text-xl font-bold bg-gray-700 hover:bg-gray-600 rounded-lg shadow-md text-white">6</button>
+                        <button data-value="-"
+                            class="btn-calc h-16 text-xl font-bold bg-blue-600 hover:bg-blue-500 rounded-lg shadow-md text-white">-</button>
+
+                        <!--  Jelaskan Kodingan ini apa  -->
+                        <!-- mendefinisikan baris keempat tombol pada kalkulator, yang terdiri dari angka 1, 2, 3, 
+                         dan operator Penjumlahan (+). -->
+                        <button data-value="1"
+                            class="btn-calc h-16 text-xl font-bold bg-gray-700 hover:bg-gray-600 rounded-lg shadow-md text-white">1</button>
+                        <button data-value="2"
+                            class="btn-calc h-16 text-xl font-bold bg-gray-700 hover:bg-gray-600 rounded-lg shadow-md text-white">2</button>
+                        <button data-value="3"
+                            class="btn-calc h-16 text-xl font-bold bg-gray-700 hover:bg-gray-600 rounded-lg shadow-md text-white">3</button>
+                        <button data-value="+"
+                            class="btn-calc h-16 text-xl font-bold bg-blue-600 hover:bg-blue-500 rounded-lg shadow-md text-white">+</button>
+
+                        <!--  Jelaskan Kodingan ini apa  -->
+                        <!-- mendefinisikan baris tombol terakhir pada kalkulator, yang terdiri dari angka 0, 
+                         tombol titik desimal (.), dan tombol Sama Dengan (=). -->
+                        <button data-value="0"
+                            class="btn-calc col-span-2 h-16 text-xl font-bold bg-gray-700 hover:bg-gray-600 rounded-lg shadow-md text-white">0</button>
+                        <button data-value="."
+                            class="btn-calc h-16 text-xl font-bold bg-gray-700 hover:bg-gray-600 rounded-lg shadow-md text-white">.</button>
+                        <button data-value="="
+                            class="btn-calc h-16 text-xl font-bold bg-green-600 hover:bg-green-500 rounded-lg shadow-md text-white">=</button>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Tambahan Hiasan -->
+    <footer class="bg-dark text-white text-center py-4 mt-5">
+        <small class="opacity-75">&copy; 2025 Tugas 6 Web Dev Project. All rights reserved.</small>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Tambahan Hiasan End -->
+
+</body>
+
+</html>
